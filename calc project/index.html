@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="background">
+      <h1>Luis Henrique</h1>
+      <div class="calculator">
+        <h1>Calculadora</h1>
+        <p id="result"></p>
+        <table>
+          <tr>
+            <td><button class="button-css" onclick="clean()">C</button></td>
+            <td><button class="button-css" onclick="back()"><</button></td>
+            <td><button class="button-css" onclick="insert('/')">/</button></td>
+            <td><button class="button-css" onclick="insert('*')">*</button></td>
+          </tr>
+          <tr>
+            <td>
+              <button class="button-css" onclick="insert('7')">7</button>
+            </td>
+            <td>
+              <button class="button-css" onclick="insert('8')">8</button>
+            </td>
+            <td>
+              <button class="button-css" onclick="insert('9')">9</button>
+            </td>
+            <td>
+              <button
+                class="button-css"
+                onclick="insert('-')"
+                onclick="subtraction()"
+              >
+                -
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="button-css" onclick="insert('4')">4</button>
+            </td>
+            <td>
+              <button class="button-css" onclick="insert('5')">5</button>
+            </td>
+            <td>
+              <button class="button-css" onclick="insert('6')">6</button>
+            </td>
+            <td><button class="button-css" onclick="insert('+')">+</button></td>
+          </tr>
+          <tr>
+            <td>
+              <button class="button-css" onclick="insert('1')">1</button>
+            </td>
+            <td>
+              <button class="button-css" onclick="insert('2')">2</button>
+            </td>
+            <td>
+              <button class="button-css" onclick="insert('3')">3</button>
+            </td>
+            <td rowspan="2">
+              <button
+                class="button-css"
+                style="height: 106px;"
+                onclick="calculate()"
+              >
+                =
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button
+                style="width: 106px;"
+                onclick="insert('0')"
+                class="button-css"
+              >
+                0
+              </button>
+            </td>
+            <td><button class="button-css" onclick="insert('.')">.</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      function insert(num) {
+        var numero = document.getElementById("result").innerHTML;
+        document.getElementById("result").innerHTML = numero + num;
+      }
+      function clean() {
+        document.getElementById("result").innerHTML = "";
+      }
+      function back() {
+        var result = document.getElementById("result").innerHTML;
+        document.getElementById("result").innerHTML = result.substring(
+          0,
+          result.length - 1
+        );
+      }
+      function calculate() {
+        var result = document.getElementById("result").innerHTML;
+        if (result) {
+          document.getElementById("result").innerHTML = eval(result);
+        } else {
+          document.getElementById("result").innerHTML = "Nada para calcular!";
+        }
+      }
+    </script>
+  </body>
+</html>
